@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 FILOSOFIA EP.01 | O Nascimento do Pensamento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --deep-blue: #0a1628;
+            --cosmic-purple: #1a0a2e;
+            --fire-orange: #FF6B35;
+            --mystic-teal: #00CED1;
+            --blood-red: #8B0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--cosmic-purple) 50%, #0d0d1a 100%);
+            color: #fff;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* LOADER CINEMATOGRÁFICO */
+        .loader-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeOutLoader 1s ease 3s forwards;
+        }
+
+        .loader-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 15px;
+            color: var(--gold);
+            animation: pulse 1.5s ease infinite;
+        }
+
+        .loader-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 20px;
+            margin-top: 20px;
+            background: linear-gradient(90deg, var(--gold), #fff, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 2s ease infinite;
+        }
+
+        @keyframes fadeOutLoader {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        /* NAVEGAÇÃO FIXA */
+        .nav-timeline {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: var(--gold);
+            transform: scale(1.3);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .nav-dot::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.9);
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid var(--gold);
+        }
+
+        .nav-dot:hover::after {
+            opacity: 1;
+        }
+
+        /* TIMER FLUTUANTE */
+        .floating-timer {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.8);
+            border: 2px solid var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timer-icon {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        /* SEÇÕES */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* HERO - ABERTURA CINEMATOGRÁFICA */
+        .hero {
+            background: 
+                radial-gradient(ellipse at center, rgba(212,175,55,0.1) 0%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23D4AF37" stroke-width="0.2" opacity="0.3"/><circle cx="50" cy="50" r="30" fill="none" stroke="%23D4AF37" stroke-width="0.2" opacity="0.2"/></svg>');
+            text-align: center;
+        }
+
+        .episode-tag {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 10px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease 3.5s both;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 3.8s both;
+        }
+
+        .hero-title .highlight {
+            display: block;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.3em;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            animation: fadeInUp 1s ease 4.1s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s ease infinite, fadeIn 1s ease 4.5s both;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(15px); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* FASE 1: CHOQUE */
+        .fase-choque {
+            background: 
+                linear-gradient(180deg, var(--deep-blue) 0%, #1a0a0a 100%);
+        }
+
+        .fase-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .fase-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 8rem;
+            line-height: 1;
+            background: linear-gradient(180deg, var(--fire-orange), var(--blood-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.3;
+        }
+
+        .fase-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 10px;
+            color: var(--fire-orange);
+            margin-top: -30px;
+        }
+
+        .fase-time {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 10px;
+        }
+
+        /* HOOK BOX */
+        .hook-container {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hook-question {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: revealText 0.8s ease forwards;
+        }
+
+        .hook-question .keyword {
+            color: var(--fire-orange);
+            text-shadow: 0 0 30px var(--fire-orange);
+            position: relative;
+        }
+
+        @keyframes revealText {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hook-scenario {
+            background: rgba(255,107,53,0.1);
+            border-left: 4px solid var(--fire-orange);
+            padding: 30px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            text-align: left;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .click-reveal {
+            background: linear-gradient(135deg, var(--fire-orange), var(--blood-red));
+            border: none;
+            padding: 20px 50px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .click-reveal:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255,107,53,0.4);
+        }
+
+        .click-reveal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s ease infinite;
+        }
+
+        @keyframes shine {
+            to { left: 100%; }
+        }
+
+        /* MITOLOGIA HOJE */
+        .mythology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+
+        .myth-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .myth-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(212,175,55,0.2);
+        }
+
+        .myth-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--mystic-teal));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .myth-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .myth-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .myth-modern {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .myth-ancient {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 10px;
+        }
+
+        .myth-connection {
+            font-size: 2rem;
+            margin: 15px 0;
+            opacity: 0.3;
+        }
+
+        /* FASE 2: CAOS */
+        .fase-caos {
+            background: 
+                radial-gradient(ellipse at top, rgba(0,206,209,0.1) 0%, transparent 50%),
+                linear-gradient(180deg, #0d0d1a 0%, var(--cosmic-purple) 100%);
+        }
+
+        .versus-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            max-width: 1100px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .versus-card {
+            background: rgba(0,0,0,0.4);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .versus-card.mito {
+            border-image: linear-gradient(180deg, #8B4513, #D2691E) 1;
+        }
+
+        .versus-card.mito:hover {
+            box-shadow: 0 0 60px rgba(210,105,30,0.3);
+            transform: scale(1.03);
+        }
+
+        .versus-card.logos {
+            border-image: linear-gradient(180deg, var(--mystic-teal), #4169E1) 1;
+        }
+
+        .versus-card.logos:hover {
+            box-shadow: 0 0 60px rgba(0,206,209,0.3);
+            transform: scale(1.03);
+        }
+
+        .versus-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .versus-card.mito .versus-title {
+            color: #D2691E;
+        }
+
+        .versus-card.logos .versus-title {
+            color: var(--mystic-teal);
+        }
+
+        .versus-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .versus-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .versus-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .versus-separator {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            color: var(--gold);
+            text-shadow: 0 0 30px var(--gold);
+            animation: pulse 2s ease infinite;
+        }
+
+        /* ANALOGIA BOX */
+        .analogia-box {
+            background: linear-gradient(135deg, rgba(212,175,55,0.1), rgba(0,206,209,0.1));
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .analogia-tag {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: var(--gold);
+            color: #000;
+            padding: 5px 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            border-radius: 20px;
+        }
+
+        .analogia-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .analogia-content .em {
+            color: var(--mystic-teal);
+            font-weight: 600;
+        }
+
+        /* FASE 3: CLAREZA */
+        .fase-clareza {
+            background: 
+                radial-gradient(ellipse at bottom, rgba(212,175,55,0.15) 0%, transparent 60%),
+                linear-gradient(180deg, var(--cosmic-purple) 0%, var(--deep-blue) 100%);
+        }
+
+        .concept-reveal {
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .big-concept {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            background: linear-gradient(180deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            margin-bottom: 20px;
+        }
+
+        .concept-meaning {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+        }
+
+        /* FILÓSOFOS CARDS */
+        .philosophers-section {
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .philosophers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+        }
+
+        .philosopher-card {
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .philosopher-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border-color: var(--gold);
+        }
+
+        .philosopher-header {
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), transparent);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .philosopher-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .philosopher-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+        }
+
+        .philosopher-info span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .philosopher-body {
+            padding: 25px;
+        }
+
+        .arkhe-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: var(--mystic-teal);
+            margin-bottom: 10px;
+        }
+
+        .arkhe-element {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .arkhe-element .icon {
+            font-size: 2.5rem;
+        }
+
+        .philosopher-quote {
+            font-style: italic;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* TIMELINE VISUAL */
+        .timeline-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--gold), var(--mystic-teal), var(--fire-orange));
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInTimeline 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInTimeline {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        /* FASE 4: CLIFFHANGER */
+        .fase-cliffhanger {
+            background: 
+                radial-gradient(ellipse at center, rgba(139,0,0,0.2) 0%, transparent 70%),
+                linear-gradient(180deg, var(--deep-blue) 0%, #000 100%);
+            text-align: center;
+        }
+
+        .cliffhanger-content {
+            max-width: 800px;
+        }
+
+        .next-episode {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 10px;
+            color: var(--blood-red);
+            margin-bottom: 30px;
+        }
+
+        .cliffhanger-question {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+
+        .cliffhanger-question .tease {
+            color: var(--fire-orange);
+            display: block;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .mission-box {
+            background: rgba(212,175,55,0.1);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .mission-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* INTERATIVIDADE */
+        .voting-section {
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .voting-question {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .voting-options {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .vote-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            padding: 15px 40px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .vote-btn:hover {
+            background: var(--gold);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        .vote-btn.selected {
+            background: var(--gold);
+            color: #000;
+            animation: selectedPulse 0.5s ease;
+        }
+
+        @keyframes selectedPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .vote-result {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(212,175,55,0.1);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .vote-result.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        /* REVEAL CARDS */
+        .reveal-card {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .reveal-inner {
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .reveal-card.flipped .reveal-inner {
+            transform: rotateY(180deg);
+        }
+
+        .reveal-front, .reveal-back {
+            backface-visibility: hidden;
+        }
+
+        .reveal-back {
+            transform: rotateY(180deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* PROGRESS BAR */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold), var(--mystic-teal), var(--fire-orange));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* PARTICLES */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* KEYWORDS HIGHLIGHT */
+        .keyword {
+            position: relative;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .keyword::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .keyword:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .versus-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .versus-separator {
+                transform: rotate(90deg);
+            }
+            
+            .nav-timeline {
+                display: none;
+            }
+            
+            .floating-timer {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+            
+            section {
+                padding: 40px 20px;
+            }
+        }
+
+        /* HIDDEN CLASS FOR REVEALS */
+        .hidden {
+            display: none !important;
+        }
+
+        /* SURPRISE EFFECTS */
+        .surprise-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .surprise-text.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glitch {
+            animation: glitch 0.3s ease;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(2px, -2px); }
+            60% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- LOADER CINEMATOGRÁFICO -->
+    <div class="loader-screen">
+        <div class="loader-text">APROFUNDAMENTOS DA</div>
+        <div class="loader-title">FILOSOFIA</div>
+    </div>
+
+    <!-- PARTÍCULAS DE FUNDO -->
+    <div class="particles" id="particles"></div>
+
+    <!-- BARRA DE PROGRESSO -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- TIMER FLUTUANTE -->
+    <div class="floating-timer">
+        <span class="timer-icon">⏱️</span>
+        <span id="timer">00:00</span>
+    </div>
+
+    <!-- NAVEGAÇÃO LATERAL -->
+    <nav class="nav-timeline">
+        <div class="nav-dot active" data-section="hero" data-label="INÍCIO"></div>
+        <div class="nav-dot" data-section="choque" data-label="⚡ CHOQUE (0-7min)"></div>
+        <div class="nav-dot" data-section="caos" data-label="🌀 CAOS (7-20min)"></div>
+        <div class="nav-dot" data-section="clareza" data-label="💡 CLAREZA (20-38min)"></div>
+        <div class="nav-dot" data-section="cliffhanger" data-label="🔥 PRÓXIMO EP."></div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- HERO - ABERTURA CINEMATOGRÁFICA -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="episode-tag">EPISÓDIO 01 • TEMPORADA 1</div>
+        <h1 class="hero-title">
+            OS PRIMEIROS
+            <span class="highlight">FILÓSOFOS GREGOS</span>
+        </h1>
+        <p class="hero-subtitle">
+            "Quando a humanidade parou de aceitar respostas prontas e começou a PERGUNTAR"
+        </p>
+        <div class="scroll-indicator">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FASE 1: CHOQUE (0-7 minutos) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="fase-choque" id="choque">
+        <div class="fase-header">
+            <div class="fase-number">01</div>
+            <div class="fase-name">CHOQUE</div>
+            <div class="fase-time">⏱️ 0-7 minutos</div>
+        </div>
+
+        <div class="hook-container">
+            <p class="hook-question">
+                Você já parou pra pensar que <span class="keyword">TODO DIA</span> você usa invenções de pessoas que morreram há <span class="keyword">2.600 ANOS</span>?
+            </p>
+
+            <div class="hook-scenario">
+                <p>🤔 Quando você abre o <strong>Google</strong> e pesquisa "por que o céu é azul?"...</p>
+                <p style="margin-top: 15px;">Você está repetindo <strong>EXATAMENTE</strong> o que um cara chamado <span style="color: var(--gold); font-weight: 700;">TALES DE MILETO</span> fez em 600 a.C.</p>
+                <p style="margin-top: 15px;">A diferença? Ele não tinha Google. Ele teve que <em>inventar</em> o ato de perguntar.</p>
+            </div>
+
+            <button class="click-reveal" onclick="revealMythology()">
+                🔥 MAS ANTES DISSO, AS PESSOAS ACREDITAVAM EM QUÊ?
+            </button>
+
+            <div id="mythologyReveal" class="hidden" style="margin-top: 50px;">
+                <h2 style="font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); margin-bottom: 30px;">
+                    A MITOLOGIA GREGA... <span style="color: var(--fire-orange);">EM 2024</span>
+                </h2>
+                
+                <div class="mythology-grid">
+                    <div class="myth-card" onclick="this.classList.toggle('expanded')">
+                        <div class="myth-icon">⚡</div>
+                        <div class="myth-modern">NIKE</div>
+                        <div class="myth-connection">↕️</div>
+                        <div class="myth-ancient">Deusa da Vitória</div>
+                    </div>
+                    
+                    <div class="myth-card">
+                        <div class="myth-icon">🔱</div>
+                        <div class="myth-modern">TRIDENT (chiclete)</div>
+                        <div class="myth-connection">↕️</div>
+                        <div class="myth-ancient">Arma de Poseidon</div>
+                    </div>
+                    
+                    <div class="myth-card">
+                        <div class="myth-icon">🏛️</div>
+                        <div class="myth-modern">AMAZON</div>
+                        <div class="myth-connection">↕️</div>
+                        <div class="myth-ancient">Guerreiras Amazonas</div>
+                    </div>
+                    
+                    <div class="myth-card">
+                        <div class="myth-icon">🎮</div>
+                        <div class="myth-modern">GOD OF WAR</div>
+                        <div class="myth-connection">↕️</div>
+                        <div class="myth-ancient">Kratos vs. Zeus</div>
+                    </div>
+                    
+                    <div class="myth-card">
+                        <div class="myth-icon">🎬</div>
+                        <div class="myth-modern">PERCY JACKSON</div>
+                        <div class="myth-connection">↕️</div>
+                        <div class="myth-ancient">Filhos dos Deuses</div>
+                    </div>
+                    
+                    <div class="myth-card">
+                        <div class="myth-icon">🚀</div>
+                        <div class="myth-modern">PROJETO APOLLO</div>
+                        <div class="myth-connection">↕️</div>
+                        <div class="myth-ancient">Deus do Sol</div>
+                    </div>
+                </div>
+
+                <div class="analogia-box" style="margin-top: 50px;">
+                    <span class="analogia-tag">💡 ANALOGIA</span>
+                    <div class="analogia-content">
+                        <p>Imagina se toda vez que você perguntasse <span class="em">"por que chove?"</span>, sua mãe respondesse:</p>
+                        <p style="margin: 20px 0; font-size: 1.4rem; color: var(--gold);">"Porque Zeus está com raiva."</p>
+                        <p>E se você perguntasse <span class="em">"mas por que ele está com raiva?"</span>...</p>
+                        <p style="margin-top: 15px; color: var(--fire-orange);">"Não questione os deuses."</p>
+                        <p style="margin-top: 25px;">Era assim. <strong>Por 3.000 anos.</strong> Até que alguns malucos resolveram dizer: "Não, peraí..."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FASE 2: CAOS (7-20 minutos) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="fase-caos" id="caos">
+        <div class="fase-header">
+            <div class="fase-number" style="background: linear-gradient(180deg, var(--mystic-teal), #4169E1); -webkit-background-clip: text;">02</div>
+            <div class="fase-name" style="color: var(--mystic-teal);">CAOS</div>
+            <div class="fase-time">⏱️ 7-20 minutos</div>
+        </div>
+
+        <h2 style="font-family: 'Cinzel', serif; font-size: 2.5rem; text-align: center; margin-bottom: 20px;">
+            O GRANDE <span style="color: var(--gold);">CONFRONTO</span>
+        </h2>
+        <p style="text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.7); max-width: 600px; margin-bottom: 40px;">
+            A batalha que mudou como a humanidade pensa para sempre
+        </p>
+
+        <div class="versus-container">
+            <div class="versus-card mito">
+                <div class="versus-icon">🏛️</div>
+                <h3 class="versus-title">MITO</h3>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Mythos = "narrativa"</p>
+                <ul class="versus-features">
+                    <li>🎭 Histórias dos deuses</li>
+                    <li>❤️ Apela às emoções</li>
+                    <li>🔒 Não pode questionar</li>
+                    <li>👥 Transmitido por tradição</li>
+                    <li>✨ Aceito pela FÉ</li>
+                </ul>
+            </div>
+
+            <div class="versus-separator">VS</div>
+
+            <div class="versus-card logos">
+                <div class="versus-icon">🧠</div>
+                <h3 class="versus-title">LOGOS</h3>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Logos = "razão/palavra"</p>
+                <ul class="versus-features">
+                    <li>🔬 Observação da natureza</li>
+                    <li>🧮 Apela à lógica</li>
+                    <li>❓ EXIGE questionamento</li>
+                    <li>📖 Argumentado e debatido</li>
+                    <li>🔍 Aceito por EVIDÊNCIA</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="voting-section">
+            <p class="voting-question">🗳️ VOTAÇÃO DA TURMA</p>
+            <p style="margin-bottom: 25px;">Se você vivesse em 600 a.C., o que seria mais SEGURO acreditar?</p>
+            <div class="voting-options">
+                <button class="vote-btn" onclick="vote('mito')">MITO 🏛️</button>
+                <button class="vote-btn" onclick="vote('logos')">LOGOS 🧠</button>
+            </div>
+            <div id="voteResult" class="vote-result">
+                <p>💭 <strong>Plot twist:</strong> Escolher LOGOS era <span style="color: var(--fire-orange);">PERIGOSO</span>. Você podia ser acusado de desrespeitar os deuses.</p>
+                <p style="margin-top: 15px;">Sócrates foi <strong>condenado à morte</strong> por fazer perguntas demais...</p>
+            </div>
+        </div>
+
+        <div class="analogia-box">
+            <span class="analogia-tag">💡 ANALOGIA PRO SEU DIA</span>
+            <div class="analogia-content">
+                <p><strong>MITO</strong> = Quando você acredita em algo porque <span class="em">"todo mundo fala"</span></p>
+                <p style="margin: 15px 0;">→ "Tal influencer é confiável porque tem milhões de seguidores"</p>
+                <p style="margin: 15px 0;"><strong>LOGOS</strong> = Quando você <span class="em">pesquisa, questiona, compara</span></p>
+                <p>→ "Deixa eu ver se isso faz sentido, quem é essa pessoa, qual a fonte..."</p>
+                <p style="margin-top: 25px; font-size: 1.3rem; color: var(--gold);">Os primeiros filósofos inventaram o FACT-CHECKING há 2.600 anos 🔥</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FASE 3: CLAREZA (20-38 minutos) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="fase-clareza" id="clareza">
+        <div class="fase-header">
+            <div class="fase-number" style="background: linear-gradient(180deg, var(--gold), var(--gold-light)); -webkit-background-clip: text;">03</div>
+            <div class="fase-name" style="color: var(--gold-light);">CLAREZA</div>
+            <div class="fase-time">⏱️ 20-38 minutos</div>
+        </div>
+
+        <div class="concept-reveal">
+            <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 5px; color: var(--mystic-teal);">
+                OS CONCEITOS QUE MUDARAM TUDO
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 50px 0;">
+                <div style="text-align: center; padding: 30px; background: rgba(0,0,0,0.3); border-radius: 20px; border: 1px solid var(--gold);">
+                    <p class="big-concept" style="font-size: 4rem;">ARKHÉ</p>
+                    <p class="concept-meaning">"Princípio" / "Origem"</p>
+                    <p style="margin-top: 20px; color: rgba(255,255,255,0.7);">A pergunta: <strong style="color: var(--gold);">do que tudo é feito?</strong></p>
+                </div>
+                
+                <div style="text-align: center; padding: 30px; background: rgba(0,0,0,0.3); border-radius: 20px; border: 1px solid var(--mystic-teal);">
+                    <p class="big-concept" style="font-size: 4rem; background: linear-gradient(180deg, var(--mystic-teal), #4169E1); -webkit-background-clip: text;">PHYSIS</p>
+                    <p class="concept-meaning">"Natureza"</p>
+                    <p style="margin-top: 20px; color: rgba(255,255,255,0.7);">A pergunta: <strong style="color: var(--mystic-teal);">como as coisas funcionam?</strong></p>
+                </div>
+            </div>
+
+            <div class="analogia-box">
+                <span class="analogia-tag">💡 TRADUZINDO</span>
+                <div class="analogia-content">
+                    <p>Imagina que o universo é tipo um <span class="em">LEGO gigante</span>.</p>
+                    <p style="margin: 15px 0;"><strong>ARKHÉ</strong> = Qual é a <span class="em">peça básica</span>? O bloquinho fundamental?</p>
+                    <p><strong>PHYSIS</strong> = Como os blocos se <span class="em">encaixam e funcionam</span> juntos?</p>
+                    <p style="margin-top: 20px; color: var(--gold);">Os filósofos queriam encontrar o "código fonte" da realidade 🎮</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="philosophers-section">
+            <h2 class="section-title">🏛️ OS PRIMEIROS FILÓSOFOS E SUAS ARKHÉS</h2>
+            
+            <div class="philosophers-grid">
+                <div class="philosopher-card">
+                    <div class="philosopher-header">
+                        <div class="philosopher-avatar">🌊</div>
+                        <div class="philosopher-info">
+                            <h3>TALES DE MILETO</h3>
+                            <span>624-546 a.C. • Mileto, Grécia</span>
+                        </div>
+                    </div>
+                    <div class="philosopher-body">
+                        <div class="arkhe-label">SUA ARKHÉ</div>
+                        <div class="arkhe-element">
+                            <span class="icon">💧</span>
+                            <span>ÁGUA</span>
+                        </div>
+                        <div class="philosopher-quote">
+                            "Tudo é água. A água pode ser líquida, sólida ou vapor. A vida nasce da água."
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--mystic-teal);">
+                            📱 Hoje: 70% do seu corpo é água. Coincidência?
+                        </p>
+                    </div>
+                </div>
+
+                <div class="philosopher-card">
+                    <div class="philosopher-header">
+                        <div class="philosopher-avatar">🌬️</div>
+                        <div class="philosopher-info">
+                            <h3>ANAXÍMENES</h3>
+                            <span>588-524 a.C. • Mileto, Grécia</span>
+                        </div>
+                    </div>
+                    <div class="philosopher-body">
+                        <div class="arkhe-label">SUA ARKHÉ</div>
+                        <div class="arkhe-element">
+                            <span class="icon">💨</span>
+                            <span>AR</span>
+                        </div>
+                        <div class="philosopher-quote">
+                            "O ar se condensa e vira água, depois terra. Se expande e vira fogo."
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--mystic-teal);">
+                            📱 Hoje: Você respira 20.000x por dia. Tenta parar 3 minutos...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="philosopher-card">
+                    <div class="philosopher-header">
+                        <div class="philosopher-avatar">∞</div>
+                        <div class="philosopher-info">
+                            <h3>ANAXIMANDRO</h3>
+                            <span>610-546 a.C. • Mileto, Grécia</span>
+                        </div>
+                    </div>
+                    <div class="philosopher-body">
+                        <div class="arkhe-label">SUA ARKHÉ</div>
+                        <div class="arkhe-element">
+                            <span class="icon">🌀</span>
+                            <span>ÁPEIRON</span>
+                        </div>
+                        <div class="philosopher-quote">
+                            "Não pode ser algo específico. Tem que ser o INFINITO, o ilimitado, de onde tudo surge."
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--mystic-teal);">
+                            📱 Hoje: Tipo a energia? O Big Bang? 🤯
+                        </p>
+                    </div>
+                </div>
+
+                <div class="philosopher-card">
+                    <div class="philosopher-header">
+                        <div class="philosopher-avatar">🔥</div>
+                        <div class="philosopher-info">
+                            <h3>HERÁCLITO</h3>
+                            <span>535-475 a.C. • Éfeso, Grécia</span>
+                        </div>
+                    </div>
+                    <div class="philosopher-body">
+                        <div class="arkhe-label">SUA ARKHÉ</div>
+                        <div class="arkhe-element">
+                            <span class="icon">🔥</span>
+                            <span>FOGO</span>
+                        </div>
+                        <div class="philosopher-quote">
+                            "Tudo flui. Você não entra no mesmo rio duas vezes. O fogo é a eterna transformação."
+                        </div>
+                        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--mystic-teal);">
+                            📱 Hoje: Suas células se renovam. Você de 7 anos atrás não existe mais.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="analogia-box" style="max-width: 1000px; margin-top: 60px;">
+            <span class="analogia-tag">🧠 A GRANDE SACADA</span>
+            <div class="analogia-content" style="text-align: center;">
+                <p style="font-size: 1.4rem; margin-bottom: 20px;">Não importa se eles estavam <span class="em">certos ou errados</span>.</p>
+                <p style="font-size: 1.8rem; color: var(--gold); font-family: 'Cinzel', serif;">O que importa é que eles <strong>PERGUNTARAM</strong>.</p>
+                <p style="margin-top: 25px; font-size: 1.1rem; color: rgba(255,255,255,0.7);">Pela primeira vez na história, humanos tentaram explicar o mundo <br><strong style="color: var(--mystic-teal);">sem recorrer a deuses ou mitos</strong>.</p>
+                <p style="margin-top: 20px; font-size: 1.3rem;">Isso é o nascimento da <span style="color: var(--fire-orange); font-weight: 700;">CIÊNCIA</span> e da <span style="color: var(--gold); font-weight: 700;">FILOSOFIA</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- FASE 4: CLIFFHANGER (38-45 minutos) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <section class="fase-cliffhanger" id="cliffhanger">
+        <div class="fase-header">
+            <div class="fase-number" style="background: linear-gradient(180deg, var(--fire-orange), var(--blood-red)); -webkit-background-clip: text;">04</div>
+            <div class="fase-name" style="color: var(--fire-orange);">CLIFFHANGER</div>
+            <div class="fase-time">⏱️ 38-45 minutos</div>
+        </div>
+
+        <div class="cliffhanger-content">
+            <div class="next-episode">PRÓXIMO EPISÓDIO</div>
+            
+            <h2 class="cliffhanger-question">
+                Hoje você descobriu que há 2.600 anos, alguns loucos decidiram <span style="color: var(--gold);">parar de aceitar respostas prontas</span>.
+                <span class="tease">Mas... e se eu te dissesse que um deles foi TÃO irritante fazendo perguntas que foi <span style="color: var(--blood-red);">CONDENADO À MORTE</span>?</span>
+            </h2>
+
+            <div style="font-size: 3rem; margin: 30px 0;">⚰️</div>
+
+            <p style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--gold);">
+                SÓCRATES
+            </p>
+            <p style="color: rgba(255,255,255,0.6); margin-top: 10px;">
+                O homem que morreu por fazer perguntas.
+            </p>
+
+            <div class="mission-box">
+                <div class="mission-title">🎯 MISSÃO DA SEMANA</div>
+                <div class="mission-text">
+                    <p>Escolha UMA coisa que você acredita "porque todo mundo acredita".</p>
+                    <p style="margin-top: 15px;">Pesquise. Questione. Descubra a origem.</p>
+                    <p style="margin-top: 15px; color: var(--gold);">Você é MITO ou LOGOS?</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; padding: 30px; background: rgba(212,175,55,0.1); border-radius: 15px;">
+                <p style="font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px;">
+                    PALAVRAS-CHAVE DESTA AULA
+                </p>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 20px;">
+                    <span style="background: var(--gold); color: #000; padding: 8px 20px; border-radius: 20px; font-weight: 600;">MITO</span>
+                    <span style="background: var(--mystic-teal); color: #000; padding: 8px 20px; border-radius: 20px; font-weight: 600;">LOGOS</span>
+                    <span style="background: var(--fire-orange); color: #fff; padding: 8px 20px; border-radius: 20px; font-weight: 600;">ARKHÉ</span>
+                    <span style="background: #8B4513; color: #fff; padding: 8px 20px; border-radius: 20px; font-weight: 600;">PHYSIS</span>
+                    <span style="background: linear-gradient(90deg, var(--gold), var(--mystic-teal)); color: #000; padding: 8px 20px; border-radius: 20px; font-weight: 600;">PRÉ-SOCRÁTICOS</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; text-align: center;">
+            <p style="font-family: 'Cinzel', serif; font-size: 1.2rem; color: rgba(255,255,255,0.5);">
+                Aprofundamentos da Filosofia • Episódio 01
+            </p>
+            <p style="font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--gold); margin-top: 10px; letter-spacing: 5px;">
+                FIM DO EPISÓDIO
+            </p>
+            <p style="margin-top: 20px; color: var(--fire-orange);">
+                🔔 Ative as notificações para o próximo episódio
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // ═══════════════════════════════════════════════════════
+        // PARTÍCULAS DE FUNDO
+        // ═══════════════════════════════════════════════════════
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // ═══════════════════════════════════════════════════════
+        // TIMER DA AULA
+        // ═══════════════════════════════════════════════════════
+        let seconds = 0;
+        let timerInterval;
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                seconds++;
+                const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+                const secs = (seconds % 60).toString().padStart(2, '0');
+                document.getElementById('timer').textContent = `${mins}:${secs}`;
+            }, 1000);
+        }
+        
+        // Inicia após o loader
+        setTimeout(startTimer, 3500);
+
+        // ═══════════════════════════════════════════════════════
+        // BARRA DE PROGRESSO
+        // ═══════════════════════════════════════════════════════
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // ═══════════════════════════════════════════════════════
+        // NAVEGAÇÃO
+        // ═══════════════════════════════════════════════════════
+        document.querySelectorAll('.nav-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const section = dot.dataset.section;
+                document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Atualizar dot ativo
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'choque', 'caos', 'clareza', 'cliffhanger'];
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            sections.forEach((id, index) => {
+                const section = document.getElementById(id);
+                const rect = section.getBoundingClientRect();
+                
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    dots.forEach(d => d.classList.remove('active'));
+                    dots[index].classList.add('active');
+                }
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════
+        // REVELAR MITOLOGIA
+        // ═══════════════════════════════════════════════════════
+        function revealMythology() {
+            const reveal = document.getElementById('mythologyReveal');
+            reveal.classList.remove('hidden');
+            reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Efeito glitch no botão
+            event.target.classList.add('glitch');
+            setTimeout(() => {
+                event.target.style.display = 'none';
+            }, 300);
+        }
+
+        // ═══════════════════════════════════════════════════════
+        // SISTEMA DE VOTAÇÃO
+        // ═══════════════════════════════════════════════════════
+        function vote(choice) {
+            const buttons = document.querySelectorAll('.vote-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.textContent.toLowerCase().includes(choice)) {
+                    btn.classList.add('selected');
+                }
+            });
+            
+            setTimeout(() => {
+                document.getElementById('voteResult').classList.add('show');
+            }, 800);
+        }
+
+        // ═══════════════════════════════════════════════════════
+        // ANIMAÇÃO DOS CARDS DOS FILÓSOFOS
+        // ═══════════════════════════════════════════════════════
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.philosopher-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s ease ${index * 0.15}s`;
+            observer.observe(card);
+        });
+
+        document.querySelectorAll('.myth-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // ═══════════════════════════════════════════════════════
+        // EFEITO HOVER NOS CARDS DE MITOLOGIA
+        // ═══════════════════════════════════════════════════════
+        document.querySelectorAll('.myth-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('.myth-connection').textContent = '🔗';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('.myth-connection').textContent = '↕️';
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════
+        // CONSOLE EASTER EGG
+        // ═══════════════════════════════════════════════════════
+        console.log('%c🏛️ FILOSOFIA VIRAL', 'font-size: 30px; font-weight: bold; color: #D4AF37;');
+        console.log('%cVocê achou o console. Tales de Mileto aprovaria sua curiosidade. 💧', 'font-size: 14px; color: #00CED1;');
+    </script>
+</body>
+</html>
